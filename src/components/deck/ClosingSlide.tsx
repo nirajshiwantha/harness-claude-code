@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import React, { useCallback, useEffect, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+
+import { DocsBrowserTour } from './DocsBrowserTour';
 
 type Segment = {
   text: string;
@@ -19,12 +21,15 @@ const DEMO: Segment[] = [
 
 
 // How long the homework line stays before it is typed away.
-const HOLD_MS = 10000;
+const HOLD_MS = 8000;
+// Beat between the headline emptying and the browser opening.
+const BEFORE_BROWSER_MS = 400;
+// Beat between the browser closing and the demo line being typed.
+const AFTER_BROWSER_MS = 1100;
 const DELETE_MS_PER_CHAR = 25;
-const PAUSE_MS = 500;
 const TYPE_MS_PER_CHAR = 70;
 
-type Phase = 'hold' | 'deleting' | 'typing' | 'done';
+type Stage = 'hold' | 'deleting' | 'browser' | 'closing' | 'typing' | 'done';
 
 const lengthOf = (segments: Segment[]) =>
 segments.reduce((sum, s) => sum + s.text.length, 0);
@@ -33,67 +38,95 @@ export function ClosingSlide() {
   const reduce = useReducedMotion();
   const frozen = new URLSearchParams(window.location.search).has('freezeAnimations');
 
-  const [phase, setPhase] = useState<Phase>('hold');
+  const [stage, setStage] = useState<Stage>('hold');
   const [count, setCount] = useState(lengthOf(HOMEWORK));
+  const closeBrowser = useCallback(() => setStage('closing'), []);
 
   useEffect(() => {
     if (frozen) return;
-    let timer: number;
+    let timer: number | undefined;
 
-    if (phase === 'hold') {
+    if (stage === 'hold') {
       timer = window.setTimeout(() => {
         if (reduce) {
           setCount(lengthOf(DEMO));
-          setPhase('done');
+          setStage('done');
         } else {
-          setPhase('deleting');
+          setStage('deleting');
         }
       }, HOLD_MS);
-    } else if (phase === 'deleting') {
+    } else if (stage === 'deleting') {
       timer =
       count > 0 ?
       window.setTimeout(() => setCount(count - 1), DELETE_MS_PER_CHAR) :
-      window.setTimeout(() => setPhase('typing'), PAUSE_MS);
-    } else if (phase === 'typing') {
+      window.setTimeout(() => setStage('browser'), BEFORE_BROWSER_MS);
+    } else if (stage === 'closing') {
+      timer = window.setTimeout(() => setStage('typing'), AFTER_BROWSER_MS);
+    } else if (stage === 'typing') {
       timer =
       count < lengthOf(DEMO) ?
       window.setTimeout(() => setCount(count + 1), TYPE_MS_PER_CHAR) :
-      window.setTimeout(() => setPhase('done'), 0);
+      window.setTimeout(() => setStage('done'), 0);
     }
 
     return () => window.clearTimeout(timer);
-  }, [phase, count, reduce, frozen]);
+  }, [stage, count, reduce, frozen]);
 
-  const showDemo = phase === 'typing' || phase === 'done';
-  const segments = showDemo ? DEMO : HOMEWORK;
+  const showHomework = stage === 'hold' || stage === 'deleting';
+  const showDemo = !showHomework;
+  const showCursor = stage !== 'hold';
+  const segments = showHomework ? HOMEWORK : DEMO;
+  const inBrowser = stage === 'browser';
 
   return (
-    <section className="flex h-full w-full flex-col justify-between bg-ink px-[6vw] py-[6vh] font-heading text-fg">
-      <div className="flex items-center justify-between">
-        <p className="font-mono text-[1.1vw] uppercase tracking-[0.18em] text-coral">
-          {showDemo ? 'Up next' : 'Your homework'}
-        </p>
-      </div>
-
-      <h2 className="min-h-[11.2vw] max-w-[78vw] text-[5.6vw] font-semibold leading-[1] tracking-[-0.04em]">
-        {renderTyped(segments, count)}
-        {phase !== 'hold' &&
-        <motion.span
-          aria-hidden="true"
-          className="ml-[0.06em] inline-block h-[0.8em] w-[0.08em] translate-y-[0.08em] bg-coral"
-          animate={phase === 'done' && !reduce ? { opacity: [1, 0, 1] } : undefined}
-          transition={{ duration: 1.1, repeat: Infinity, ease: 'linear' }} />
-
+    <section className="relative h-full w-full overflow-hidden bg-ink font-heading text-fg">
+      <motion.div
+        className="flex h-full w-full flex-col justify-between px-[6vw] py-[6vh]"
+        animate={
+        inBrowser ?
+        { opacity: 0.35, scale: 0.96, filter: 'blur(6px)' } :
+        { opacity: 1, scale: 1, filter: 'blur(0px)' }
         }
-      </h2>
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}>
 
-      <div className="flex justify-end border-t border-line pt-[3vh]">
-        <span className="text-right font-mono text-[1.25vw] text-dim">
-          code.claude.com/docs
-          <br />
-          <span className="text-fg-soft">see “Extend Claude Code”</span>
-        </span>
-      </div>
+        <div className="flex items-center justify-between">
+          <p className="font-mono text-[1.1vw] uppercase tracking-[0.18em] text-coral">
+            {showDemo ? 'Up next' : 'Your homework'}
+          </p>
+        </div>
+
+        <h2 className="min-h-[11.2vw] max-w-[78vw] text-[5.6vw] font-semibold leading-[1] tracking-[-0.04em]">
+          {renderTyped(segments, count)}
+          {showCursor &&
+          <motion.span
+            aria-hidden="true"
+            className="ml-[0.06em] inline-block h-[0.8em] w-[0.08em] translate-y-[0.08em] bg-coral"
+            animate={
+            !reduce && stage !== 'deleting' && stage !== 'typing' ?
+            { opacity: [1, 0, 1] } :
+            { opacity: 1 }
+            }
+            transition={
+            !reduce && stage !== 'deleting' && stage !== 'typing' ?
+            { duration: 1.1, repeat: Infinity, ease: 'linear' } :
+            { duration: 0 }
+            } />
+
+          }
+        </h2>
+
+        <div className="flex justify-end border-t border-line pt-[3vh]">
+          <span className="text-right font-mono text-[1.25vw] text-dim">
+            code.claude.com/docs
+            <br />
+            <span className="text-fg-soft">see “Extend Claude Code”</span>
+          </span>
+        </div>
+      </motion.div>
+
+      <AnimatePresence>
+        {inBrowser && <DocsBrowserTour key="tour" onDone={closeBrowser} />}
+      </AnimatePresence>
     </section>);
 
 }

@@ -267,7 +267,7 @@ Pick terminal bell or another option to hear when Claude is done or waiting.
 
 # Write one skill for something you repeat every week.
 
-After 10 seconds the headline is deleted with a typing effect and replaced by:
+After 8 seconds the headline is deleted with a typing effect. A browser window then opens over the slide: a cursor clicks the search box, types `code.claude.com/docs`, presses Enter, and the docs page loads and scrolls through CLAUDE.md, Skills, Subagents, Hooks, MCP and Plugins in about 5 seconds. The browser closes and the new headline types in:
 
 **Up next**
 
