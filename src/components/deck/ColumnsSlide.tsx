@@ -65,7 +65,7 @@ export function ColumnsSlide({ eyebrow, title, intro, columns, note }: ColumnsCo
       {note &&
       <Reveal
         index={columns.length}
-        className="mt-auto border-t border-line pt-[2.4vh] text-[1.45vw] text-fg-soft">
+        className="mt-[4vh] border-t border-line pt-[2.4vh] text-[1.45vw] text-fg-soft">
         
           <RichText text={note} />
         </Reveal>
