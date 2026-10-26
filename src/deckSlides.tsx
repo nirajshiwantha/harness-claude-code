@@ -20,8 +20,7 @@ import {
   skills,
   slashCommands,
   storySteps,
-  subagents,
-  teammate } from
+  subagents } from
 './data/deckContent';
 
 export type DeckSlide = {
@@ -35,7 +34,6 @@ export type DeckSlide = {
 export const slides: DeckSlide[] = [
 { id: 'scr_7pnir0', title: 'Harnessing Claude Code', component: CoverSlide },
 { id: 'scr_ag3nda', title: 'Agenda', component: () => <AgendaSlide items={agendaItems} /> },
-{ id: 'scr_tmate1', title: teammate.title, component: () => <KeyValueSlide {...teammate} /> },
 { id: 'scr_setup1', title: betterSetup.title, component: () => <ColumnsSlide {...betterSetup} /> },
 { id: 'scr_plan01', title: planMode.title, component: () => <KeyValueSlide {...planMode} /> },
 { id: 'scr_slash1', title: slashCommands.title, component: () => <ColumnsSlide {...slashCommands} /> },

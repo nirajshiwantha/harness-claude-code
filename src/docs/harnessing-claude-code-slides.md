@@ -21,7 +21,6 @@ Niraj Ranasinghe · 28 October 2026
 
 | # | Topic | Focus |
 |---|---|---|
-| 0 | Mental model | Claude Code as a teammate |
 | 1 | Setup and commands | Better /init, plan mode, slash and custom commands |
 | 2 | Skills | Reusable playbooks, kept lean |
 | 3 | Subagents | Specialists with their own context |
@@ -33,22 +32,7 @@ Niraj Ranasinghe · 28 October 2026
 
 ---
 
-## Slide 3 — Claude Code is a new teammate
-
-| Piece | What it is |
-|---|---|
-| **CLAUDE.md** | The onboarding doc it reads every session |
-| **Skills** | Team playbooks it pulls out when needed |
-| **Subagents** | Specialists you hand work to |
-| **Hooks** | Rules that always run, like CI checks |
-| **MCP** | Access to your systems: DevOps, databases, docs |
-| **Plugins** | The box that ships it all to your team |
-
-> **Speaker notes:** The one idea to keep in mind all session. The official docs describe the same picture: layers that plug into the agentic loop, with plugins as the packaging on top. Come back to this slide as you cover each piece.
-
----
-
-## Slide 4 — Start with a better setup
+## Slide 3 — Start with a better setup
 
 **Better /init**
 `CLAUDE_CODE_NEW_INIT=1 claude`
@@ -68,7 +52,7 @@ Short lessons inside Claude Code, each with an animated demo of one feature.
 
 ---
 
-## Slide 5 — Better plan mode
+## Slide 4 — Better plan mode
 
 | Setting | What it does |
 |---|---|
@@ -82,7 +66,7 @@ Settings live in **settings.json**. You can simply ask Claude to add them for yo
 
 ---
 
-## Slide 6 — Slash commands you’ll use daily
+## Slide 5 — Slash commands you’ll use daily
 
 **Context**
 - `/clear` — fresh context for a new task
@@ -108,7 +92,7 @@ Type **/** in the prompt box to see every command, including your own and your p
 
 ---
 
-## Slide 7 — Custom commands: write your own
+## Slide 6 — Custom commands: write your own
 
 - A markdown file in `.claude/commands/` becomes **/name**
 - `$ARGUMENTS` is whatever you type after the command
@@ -132,7 +116,7 @@ Fix Azure DevOps item #$ARGUMENTS.
 
 ---
 
-## Slide 8 — Skills: reusable playbooks
+## Slide 7 — Skills: reusable playbooks
 
 - A folder with a **SKILL.md**, run as **/name** by you or picked up by Claude
 - Project: `.claude/skills/<name>/` · Personal: `~/.claude/skills/<name>/`
@@ -153,7 +137,7 @@ description: Add an API endpoint the way our team builds them
 
 ---
 
-## Slide 9 — Keep the setup lean
+## Slide 8 — Keep the setup lean
 
 Instructions written for older models, and skills nobody uses, still eat context.
 
@@ -170,7 +154,7 @@ Lists every skill, sorted by token size.
 
 ---
 
-## Slide 10 — Subagents: specialists
+## Slide 9 — Subagents: specialists
 
 - **Own context window:** it reads 40 files, your session gets back only the summary
 - **Own instructions and tools,** and it can preload skills
@@ -192,7 +176,7 @@ Do not edit files.
 
 ---
 
-## Slide 11 — Hooks (statement slide)
+## Slide 10 — Hooks (statement slide)
 
 # Hooks run every time, whatever the model decides.
 
@@ -202,7 +186,7 @@ Claude doesn't even know they exist. That's the point.
 
 ---
 
-## Slide 12 — Hooks in practice
+## Slide 11 — Hooks in practice
 
 **PostToolUse · after every edit — Format code automatically**
 ```json
@@ -221,7 +205,7 @@ Lives in **.claude/settings.json**. Commit it so the whole team gets the same ru
 
 ---
 
-## Slide 13 — MCP and plugins
+## Slide 12 — MCP and plugins
 
 **MCP — Connects Claude to your systems**
 - Azure DevOps work items and pipelines
@@ -238,7 +222,7 @@ Lives in **.claude/settings.json**. Commit it so the whole team gets the same ru
 
 ---
 
-## Slide 14 — Many sessions at once
+## Slide 13 — Many sessions at once
 
 **Sessions talk** — `/list-agents`
 See which sessions you can reach, then ask one session to message another. It gets the answer even while the other is still working.
@@ -253,7 +237,7 @@ Pick terminal bell or another option to hear when Claude is done or waiting.
 
 ---
 
-## Slide 15 — One repo, one story
+## Slide 14 — One repo, one story
 
 **Skill** (/add-endpoint builds the feature) → **Subagent** (code-reviewer checks it) → **Hook** (dotnet format cleans every edit) → **Plugin** (ships the whole setup to the team)
 
@@ -261,13 +245,13 @@ Pick terminal bell or another option to hear when Claude is done or waiting.
 
 ---
 
-## Slide 16 — Closing
+## Slide 15 — Closing
 
 **Your homework**
 
 # Write one skill for something you repeat every week.
 
-After 8 seconds the headline is deleted with a typing effect. A browser window then opens over the slide: a cursor clicks the search box, types `code.claude.com/docs`, presses Enter, and the docs page loads and scrolls through CLAUDE.md, Skills, Subagents, Hooks, MCP and Plugins in about 5 seconds. The browser closes and the new headline types in:
+After 5.6 seconds the headline is deleted with a typing effect. A browser window then opens over the slide: a cursor clicks the search box, types `code.claude.com/docs`, presses Enter, and the docs page loads and scrolls through CLAUDE.md, Skills, Subagents, Hooks, MCP and Plugins in about 5 seconds. The browser closes and the new headline types in:
 
 **Up next**
 

@@ -7,7 +7,6 @@ import type {
 '../types/deck';
 
 export const agendaItems: AgendaItem[] = [
-{ number: '0', topic: 'Mental model', focus: 'Claude Code as a teammate' },
 { number: '1', topic: 'Setup and commands', focus: 'Better /init, plan mode, slash and custom commands' },
 { number: '2', topic: 'Skills', focus: 'Reusable playbooks, kept lean' },
 { number: '3', topic: 'Subagents', focus: 'Specialists with their own context' },
@@ -15,19 +14,6 @@ export const agendaItems: AgendaItem[] = [
 { number: '5', topic: 'Scaling up', focus: 'MCP, plugins, many sessions at once' },
 { number: '6', topic: 'Wrap-up', focus: 'One story, homework, Q&A' }];
 
-
-export const teammate: KeyValueContent = {
-  title: 'Claude Code is a new teammate',
-  layout: 'grid',
-  rows: [
-  { key: 'CLAUDE.md', value: 'The onboarding doc it reads every session' },
-  { key: 'Skills', value: 'Team playbooks it pulls out when needed' },
-  { key: 'Subagents', value: 'Specialists you hand work to' },
-  { key: 'Hooks', value: 'Rules that always run, like CI checks' },
-  { key: 'MCP', value: 'Access to your systems: DevOps, databases, docs' },
-  { key: 'Plugins', value: 'The box that ships it all to your team' }]
-
-};
 
 export const betterSetup: ColumnsContent = {
   title: 'Start with a better setup',

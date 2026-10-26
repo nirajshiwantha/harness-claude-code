@@ -34,20 +34,19 @@ Speaker notes and the full script are in [src/docs/harnessing-claude-code-slides
 
 1. Harnessing Claude Code
 2. Agenda
-3. Claude Code is a new teammate
-4. Start with a better setup
-5. Better plan mode
-6. Slash commands you'll use daily
-7. Custom commands: write your own
-8. Skills: reusable playbooks
-9. Keep the setup lean
-10. Subagents: specialists
-11. Hooks run every time, whatever the model decides
-12. Hooks in practice
-13. MCP and plugins
-14. Many sessions at once
-15. One repo, one story
-16. Write one skill for something you repeat every week
+3. Start with a better setup
+4. Better plan mode
+5. Slash commands you'll use daily
+6. Custom commands: write your own
+7. Skills: reusable playbooks
+8. Keep the setup lean
+9. Subagents: specialists
+10. Hooks run every time, whatever the model decides
+11. Hooks in practice
+12. MCP and plugins
+13. Many sessions at once
+14. One repo, one story
+15. Write one skill for something you repeat every week
 
 ## Project layout
 

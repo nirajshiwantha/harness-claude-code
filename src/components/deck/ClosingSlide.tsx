@@ -21,7 +21,7 @@ const DEMO: Segment[] = [
 
 
 // How long the homework line stays before it is typed away.
-const HOLD_MS = 8000;
+const HOLD_MS = 5600;
 // Beat between the headline emptying and the browser opening.
 const BEFORE_BROWSER_MS = 400;
 // Beat between the browser closing and the demo line being typed.
