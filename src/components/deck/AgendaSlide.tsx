@@ -11,7 +11,7 @@ type AgendaSlideProps = {
 export function AgendaSlide({ items }: AgendaSlideProps) {
   return (
     <SlideFrame eyebrow="The route" title="Agenda">
-      <ol className="grid flex-1 grid-cols-4 grid-rows-2 gap-[1.4vw]">
+      <ol className="grid flex-1 grid-cols-3 grid-rows-2 gap-[1.4vw]">
         {items.map((item, i) =>
         <Reveal
           key={item.number}
