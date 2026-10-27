@@ -38,7 +38,7 @@ For anyone new: CLAUDE.md is a plain text file in your project that Claude reads
 
 ## Slide 4: Better plan mode
 
-Plan mode makes Claude think before it types. Three settings improve it. One clears the chat when you approve the plan, so building starts with only the plan. One saves plans inside your repo, so the team can see them. And `opusplan` lets the strongest model do the planning while a cheaper model does the building. You don't have to edit settings.json by hand. You can just ask Claude to add them for you.
+Plan mode makes Claude think before it types. Two commands improve it. `/model opusplan` lets the strongest model do the planning while a cheaper model does the building. And `/advisor` adds a stronger reviewer model that Claude checks with before big decisions and before it says it's done.
 
 ## Slide 5: Slash commands you'll use daily
 

@@ -42,15 +42,13 @@ export const planMode: KeyValueContent = {
   monoKeys: true,
   rows: [
   {
-    key: '"showClearContextOnPlanAccept": true',
-    value: 'Brings back "clear context" when you approve a plan, so building starts with only the plan'
-  },
-  {
     key: '/model opusplan',
     value: 'Opus plans, Sonnet builds: stronger plans, less of your usage limit'
-  }],
-
-  note: 'Settings live in **settings.json**. You can simply ask Claude to add them for you.'
+  },
+  {
+    key: '/advisor',
+    value: 'Adds a stronger reviewer model that Claude consults before big decisions and before it finishes'
+  }]
 };
 
 export const slashCommands: ColumnsContent = {

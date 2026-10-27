@@ -54,14 +54,12 @@ Short lessons inside Claude Code, each with an animated demo of one feature.
 
 ## Slide 4 — Better plan mode
 
-| Setting | What it does |
+| Command | What it does |
 |---|---|
-| `"showClearContextOnPlanAccept": true` | Brings back "clear context" when you approve a plan, so building starts with only the plan |
 | `/model opusplan` | Opus plans, Sonnet builds: stronger plans, less of your usage limit |
+| `/advisor` | Adds a stronger reviewer model that Claude consults before big decisions and before it finishes |
 
-Settings live in **settings.json**. You can simply ask Claude to add them for you.
-
-> **Speaker notes:** Clearing context after planning drops all the back-and-forth, but the plan itself is kept as a file. opusplan matters most on the Pro plan, where limits are hit faster.
+> **Speaker notes:** opusplan matters most on the Pro plan, where limits are hit faster. The advisor sees the whole conversation, so it can catch a wrong turn early, before Claude builds on it.
 
 ---
 
