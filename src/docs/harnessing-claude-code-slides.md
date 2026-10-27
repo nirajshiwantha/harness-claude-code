@@ -22,11 +22,11 @@ Niraj Ranasinghe · 28 October 2026
 | # | Topic | Focus |
 |---|---|---|
 | 1 | Setup and commands | Better /init, plan mode, slash and custom commands |
-| 2 | Skills | Reusable playbooks, kept lean |
+| 2 | Skills | Reusable playbooks |
 | 3 | Subagents | Specialists with their own context |
 | 4 | Hooks | Rules that always run |
-| 5 | Scaling up | MCP, plugins, many sessions at once |
-| 6 | Wrap-up | One story, homework, Q&A |
+| 5 | Scaling up | MCP and plugins |
+| 6 | Wrap-up | One story that ties it together |
 
 > **Speaker notes:** Each level builds on the last, and the demos all happen in one repo so it becomes a single story by the end. Pace it to the room: the settings slides are quick wins; the skills, subagents and hooks slides are where to spend demo time.
 
@@ -137,24 +137,7 @@ description: Add an API endpoint the way our team builds them
 
 ---
 
-## Slide 8 — Keep the setup lean
-
-Instructions written for older models, and skills nobody uses, still eat context.
-
-**`/claude-api prompt-audit`**
-Subagents check every CLAUDE.md and skill, then report what's outdated with suggested fixes. Run it after each new model.
-
-**`/skill-doctor`**
-How often each skill runs, when it last ran, and how many tokens it costs.
-
-**`/skills`, then press T**
-Lists every skill, sorted by token size.
-
-> **Speaker notes:** Follows naturally from writing skills: once you have a few, maintain them. Use the audit report, then ask Claude to apply the fixes and delete unused skills. Exact command names are from a community walkthrough: confirm on your version.
-
----
-
-## Slide 9 — Subagents: specialists
+## Slide 8 — Subagents: specialists
 
 - **Own context window:** it reads 40 files, your session gets back only the summary
 - **Own instructions and tools,** and it can preload skills
@@ -176,7 +159,7 @@ Do not edit files.
 
 ---
 
-## Slide 10 — Hooks (statement slide)
+## Slide 9 — Hooks (statement slide)
 
 # Hooks run every time, whatever the model decides.
 
@@ -186,7 +169,7 @@ Claude doesn't even know they exist. That's the point.
 
 ---
 
-## Slide 11 — Hooks in practice
+## Slide 10 — Hooks in practice
 
 **PostToolUse · after every edit — Format code automatically**
 ```json
@@ -205,7 +188,7 @@ Lives in **.claude/settings.json**. Commit it so the whole team gets the same ru
 
 ---
 
-## Slide 12 — MCP and plugins
+## Slide 11 — MCP and plugins
 
 **MCP — Connects Claude to your systems**
 - Azure DevOps work items and pipelines
@@ -222,41 +205,12 @@ Lives in **.claude/settings.json**. Commit it so the whole team gets the same ru
 
 ---
 
-## Slide 13 — Many sessions at once
-
-**Sessions talk** — `/list-agents`
-See which sessions you can reach, then ask one session to message another. It gets the answer even while the other is still working.
-
-**Don't get stuck** — `"askUserQuestionTimeout": 60`
-After the timeout Claude takes the suggested answer and keeps going, unless it truly needs you.
-
-**Know who needs you** — `/config` → Local notifications
-Pick terminal bell or another option to hear when Claude is done or waiting.
-
-> **Speaker notes:** Each session normally knows only its own chat. With these three, parallel sessions share answers, keep moving when you're away, and tell you when they need you. Confirm the timeout key on your version.
-
----
-
-## Slide 14 — One repo, one story
+## Slide 12 — One repo, one story (Recap)
 
 **Skill** (/add-endpoint builds the feature) → **Subagent** (code-reviewer checks it) → **Hook** (dotnet format cleans every edit) → **Plugin** (ships the whole setup to the team)
 
 > **Speaker notes:** Prepare the skill, subagent and hook files beforehand; live-type only small edits so you stay on time. Recap the whole session as one pipeline. Each piece built on the last, and the plugin is how this stops being one person's setup and becomes the team's.
 
----
-
-## Slide 15 — Closing
-
-**Your homework**
-
-# Write one skill for something you repeat every week.
-
-After 5.6 seconds the headline is deleted with a typing effect. A browser window then opens over the slide: a cursor clicks the search box, types `code.claude.com/docs`, presses Enter, and the docs page loads and scrolls through CLAUDE.md, Skills, Subagents, Hooks, MCP and Plugins in about 5 seconds. The browser closes and the new headline types in:
-
-**Up next**
-
-# Let’s go to the demo.
+After 10 seconds the recap cards and arrows lift, blur and fade away one by one, starting from the last card. The first card goes last, taking the "Recap" label and heading with it. Two seconds later a browser window opens over the slide: a cursor clicks the search box, types `code.claude.com/docs`, presses Enter, and the docs page loads and scrolls through CLAUDE.md, Skills, Subagents, Hooks, MCP and Plugins in about 5 seconds. The browser closes and the recap cards return.
 
 Docs: code.claude.com/docs — see "Extend Claude Code"
-
-> **Speaker notes:** One small concrete task beats a long reading list. Features change often, so point people to the docs rather than memorizing details.

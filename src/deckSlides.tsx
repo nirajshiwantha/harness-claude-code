@@ -1,7 +1,6 @@
 import React, { type ComponentType } from 'react';
 
 import { AgendaSlide } from './components/deck/AgendaSlide';
-import { ClosingSlide } from './components/deck/ClosingSlide';
 import { CodeSlide } from './components/deck/CodeSlide';
 import { ColumnsSlide } from './components/deck/ColumnsSlide';
 import { CoverSlide } from './components/deck/CoverSlide';
@@ -13,8 +12,6 @@ import {
   betterSetup,
   customCommands,
   hooksPractice,
-  leanSetup,
-  manySessions,
   mcpPlugins,
   planMode,
   skills,
@@ -39,7 +36,6 @@ export const slides: DeckSlide[] = [
 { id: 'scr_slash1', title: slashCommands.title, component: () => <ColumnsSlide {...slashCommands} /> },
 { id: 'scr_cmds01', title: customCommands.title, component: () => <CodeSlide {...customCommands} /> },
 { id: 'scr_skill1', title: skills.title, component: () => <CodeSlide {...skills} /> },
-{ id: 'scr_lean01', title: leanSetup.title, component: () => <ColumnsSlide {...leanSetup} /> },
 { id: 'scr_subag1', title: subagents.title, component: () => <CodeSlide {...subagents} /> },
 {
   id: 'scr_hooks1',
@@ -53,14 +49,8 @@ export const slides: DeckSlide[] = [
 },
 { id: 'scr_hooks2', title: hooksPractice.title, component: () => <ColumnsSlide {...hooksPractice} /> },
 { id: 'scr_mcp001', title: mcpPlugins.title, component: () => <ColumnsSlide {...mcpPlugins} /> },
-{ id: 'scr_sess01', title: manySessions.title, component: () => <ColumnsSlide {...manySessions} /> },
 {
   id: 'scr_story1',
   title: 'One repo, one story',
   component: () => <StorySlide steps={storySteps} />
-},
-{
-  id: 'scr_close1',
-  title: 'Write one skill for something you repeat every week.',
-  component: ClosingSlide
 }];

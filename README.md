@@ -1,6 +1,6 @@
 # Harnessing Claude Code
 
-A slide deck on getting the most out of [Claude Code](https://claude.com/claude-code): setup, plan mode, commands, skills, subagents, hooks, MCP and running many sessions at once. Presented by Niraj Ranasinghe on 28 October 2026.
+A slide deck on getting the most out of [Claude Code](https://claude.com/claude-code): setup, plan mode, commands, skills, subagents, hooks, MCP and plugins. Presented by Niraj Ranasinghe on 28 October 2026.
 
 It's built as a React + Vite + Tailwind app, so it runs in the browser rather than PowerPoint.
 
@@ -39,14 +39,11 @@ Speaker notes and the full script are in [src/docs/harnessing-claude-code-slides
 5. Slash commands you'll use daily
 6. Custom commands: write your own
 7. Skills: reusable playbooks
-8. Keep the setup lean
-9. Subagents: specialists
-10. Hooks run every time, whatever the model decides
-11. Hooks in practice
-12. MCP and plugins
-13. Many sessions at once
-14. One repo, one story
-15. Write one skill for something you repeat every week
+8. Subagents: specialists
+9. Hooks run every time, whatever the model decides
+10. Hooks in practice
+11. MCP and plugins
+12. One repo, one story
 
 ## Project layout
 

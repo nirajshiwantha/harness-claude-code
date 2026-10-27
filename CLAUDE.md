@@ -19,7 +19,7 @@ There are no tests.
 
 - **`src/App.tsx` is the deck harness — do not edit.** It owns `slideIndex`, keyboard navigation, the `MP_SLIDE_CHANGED` / `MP_NAVIGATE_SLIDE` host messages, and the cross-dissolve between slides.
 - **`src/deckSlides.tsx`** is the ordered slide list (`id`, `title`, `component`). Presentation order is array order.
-- **`src/data/deckContent.ts`** holds slide copy as typed objects (types in `src/types/deck.ts`). Most slides are a reusable layout fed from one of these objects: `KeyValueSlide`, `ColumnsSlide`, `CodeSlide`. Cover, agenda, statement, story and closing slides have their own components in `src/components/deck/`.
+- **`src/data/deckContent.ts`** holds slide copy as typed objects (types in `src/types/deck.ts`). Most slides are a reusable layout fed from one of these objects: `KeyValueSlide`, `ColumnsSlide`, `CodeSlide`. Cover, agenda, statement and story (recap) slides have their own components in `src/components/deck/`.
 - **`src/canvas.manifest.js`** maps each slide `id` to a Magic Patterns screen: `name` (should match the slide title), `state.slideIndex` (its position in `slides`), canvas `position`, and section grouping in `sections` / `layers`. `useScreenInit.js` reads `?mp_screen=<id>` to open the deck on that slide.
 - Slide strings support inline `` `code` `` and `**bold**` via `RichText`; `Reveal` staggers secondary content; `?freezeAnimations` disables animation.
 - Theme colors are `deck-*` CSS variables in `src/index.css`, exposed as Tailwind colors (`ink`, `panel`, `line`, `dim`, `fg`, `fg-soft`, `coral`, `coral-soft`, `oncoral`). Sizes use `vw`/`vh` units so slides scale with the viewport. Keep the managed font imports and Tailwind import order at the top of `index.css` intact.

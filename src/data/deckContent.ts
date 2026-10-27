@@ -8,11 +8,11 @@ import type {
 
 export const agendaItems: AgendaItem[] = [
 { number: '1', topic: 'Setup and commands', focus: 'Better /init, plan mode, slash and custom commands' },
-{ number: '2', topic: 'Skills', focus: 'Reusable playbooks, kept lean' },
+{ number: '2', topic: 'Skills', focus: 'Reusable playbooks' },
 { number: '3', topic: 'Subagents', focus: 'Specialists with their own context' },
 { number: '4', topic: 'Hooks', focus: 'Rules that always run' },
-{ number: '5', topic: 'Scaling up', focus: 'MCP, plugins, many sessions at once' },
-{ number: '6', topic: 'Wrap-up', focus: 'One story, homework, Q&A' }];
+{ number: '5', topic: 'Scaling up', focus: 'MCP and plugins' },
+{ number: '6', topic: 'Wrap-up', focus: 'One story that ties it together' }];
 
 
 export const betterSetup: ColumnsContent = {
@@ -129,25 +129,6 @@ description: Add an API endpoint the way our team builds them
 4. Run dotnet build and dotnet test`
 };
 
-export const leanSetup: ColumnsContent = {
-  title: 'Keep the setup lean',
-  intro: 'Instructions written for older models, and skills nobody uses, still eat context.',
-  columns: [
-  {
-    command: '`/claude-api prompt-audit`',
-    body: "Subagents check every CLAUDE.md and skill, then report what's outdated with suggested fixes. Run it after each new model."
-  },
-  {
-    command: '`/skill-doctor`',
-    body: 'How often each skill runs, when it last ran, and how many tokens it costs.'
-  },
-  {
-    command: '`/skills`, then press **T**',
-    body: 'Lists every skill, sorted by token size.'
-  }]
-
-};
-
 export const subagents: CodeContent = {
   title: 'Subagents: specialists',
   bullets: [
@@ -210,27 +191,6 @@ export const mcpPlugins: ColumnsContent = {
     'Namespaced commands, e.g. `/team-dotnet:review`',
     'Install from a marketplace, so everyone gets the same setup']
 
-  }]
-
-};
-
-export const manySessions: ColumnsContent = {
-  title: 'Many sessions at once',
-  columns: [
-  {
-    title: 'Sessions talk',
-    command: '`/list-agents`',
-    body: 'See which sessions you can reach, then ask one session to message another. It gets the answer even while the other is still working.'
-  },
-  {
-    title: "Don't get stuck",
-    command: '`"askUserQuestionTimeout": 60`',
-    body: 'After the timeout Claude takes the suggested answer and keeps going, unless it truly needs you.'
-  },
-  {
-    title: 'Know who needs you',
-    command: '`/config` → Local notifications',
-    body: 'Pick terminal bell or another option to hear when Claude is done or waiting.'
   }]
 
 };
