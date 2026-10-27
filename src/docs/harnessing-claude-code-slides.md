@@ -38,10 +38,6 @@ Niraj Ranasinghe · 28 October 2026
 `CLAUDE_CODE_NEW_INIT=1 claude`
 /init asks how you work (Git, deploys, skills, hooks), shows a plan, then writes a lean CLAUDE.md plus starter skills and hooks.
 
-**Import a setup**
-`/import codex` · `/import cursor`
-Lists the instruction files and MCP servers from your old agent. Pick what to bring; Claude copies it over.
-
 **Learn in place**
 `/powerup`
 Short lessons inside Claude Code, each with an animated demo of one feature.

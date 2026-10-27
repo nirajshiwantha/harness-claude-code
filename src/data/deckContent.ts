@@ -24,11 +24,6 @@ export const betterSetup: ColumnsContent = {
     body: '/init asks how you work (Git, deploys, skills, hooks), shows a plan, then writes a lean CLAUDE.md plus starter skills and hooks.'
   },
   {
-    title: 'Import a setup',
-    command: '`/import codex` · `/import cursor`',
-    body: 'Lists the instruction files and MCP servers from your old agent. Pick what to bring; Claude copies it over.'
-  },
-  {
     title: 'Learn in place',
     command: '`/powerup`',
     body: 'Short lessons inside Claude Code, each with an animated demo of one feature.'

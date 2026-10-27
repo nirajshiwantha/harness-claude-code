@@ -34,7 +34,7 @@ And it isn't only for your own machine. You can run Claude Code in CI, the build
 
 ## Slide 3: Start with a better setup
 
-For anyone new: CLAUDE.md is a plain text file in your project that Claude reads at the start of every session. It is how you tell Claude about your project: how to build it, how to run tests, what your team's rules are. Without it, Claude starts from zero every time. You create it by typing `/init`, which is a slash command, a shortcut you type inside Claude Code. The catch is that the default `/init` writes down everything it sees, which makes the file bloated, and a long file is a file that gets ignored. The better `/init` asks you questions first, then writes a lean file. One rule to remember: CLAUDE.md only holds what Claude can't work out by reading the code. If you're moving from Codex or Cursor, `/import` brings your old setup across. And `/powerup` gives you short interactive lessons, inside Claude Code itself.
+For anyone new: CLAUDE.md is a plain text file in your project that Claude reads at the start of every session. It is how you tell Claude about your project: how to build it, how to run tests, what your team's rules are. Without it, Claude starts from zero every time. You create it by typing `/init`, which is a slash command, a shortcut you type inside Claude Code. The catch is that the default `/init` writes down everything it sees, which makes the file bloated, and a long file is a file that gets ignored. The better `/init` asks you questions first, then writes a lean file. One rule to remember: CLAUDE.md only holds what Claude can't work out by reading the code. And `/powerup` gives you short interactive lessons, inside Claude Code itself.
 
 ## Slide 4: Better plan mode
 
