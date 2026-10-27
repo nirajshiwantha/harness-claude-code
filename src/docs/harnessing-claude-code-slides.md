@@ -57,12 +57,11 @@ Short lessons inside Claude Code, each with an animated demo of one feature.
 | Setting | What it does |
 |---|---|
 | `"showClearContextOnPlanAccept": true` | Brings back "clear context" when you approve a plan, so building starts with only the plan |
-| `"plansDirectory": "./plans"` | Saves plans in the repo instead of ~/.claude/plans, so the team can see and commit them |
 | `/model opusplan` | Opus plans, Sonnet builds: stronger plans, less of your usage limit |
 
 Settings live in **settings.json**. You can simply ask Claude to add them for you.
 
-> **Speaker notes:** Clearing context after planning drops all the back-and-forth, but the plan itself is kept as a file. Some references say plansDirectory is not accepted in the shared project settings file, so if it is ignored there, put it in your user or local settings. opusplan matters most on the Pro plan, where limits are hit faster.
+> **Speaker notes:** Clearing context after planning drops all the back-and-forth, but the plan itself is kept as a file. opusplan matters most on the Pro plan, where limits are hit faster.
 
 ---
 

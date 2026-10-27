@@ -46,10 +46,6 @@ export const planMode: KeyValueContent = {
     value: 'Brings back "clear context" when you approve a plan, so building starts with only the plan'
   },
   {
-    key: '"plansDirectory": "./plans"',
-    value: 'Saves plans in the repo instead of ~/.claude/plans, so the team can see and commit them'
-  },
-  {
     key: '/model opusplan',
     value: 'Opus plans, Sonnet builds: stronger plans, less of your usage limit'
   }],
