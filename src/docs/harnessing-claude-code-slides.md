@@ -211,6 +211,10 @@ Lives in **.claude/settings.json**. Commit it so the whole team gets the same ru
 
 > **Speaker notes:** Prepare the skill, subagent and hook files beforehand; live-type only small edits so you stay on time. Recap the whole session as one pipeline. Each piece built on the last, and the plugin is how this stops being one person's setup and becomes the team's.
 
-After 10 seconds the recap cards and arrows lift, blur and fade away one by one, starting from the last card. The first card goes last, taking the "Recap" label and heading with it. Two seconds later a browser window opens over the slide: a cursor clicks the search box, types `code.claude.com/docs`, presses Enter, and the docs page loads and scrolls through CLAUDE.md, Skills, Subagents, Hooks, MCP and Plugins in about 5 seconds. The browser closes and the recap cards return.
+After 10 seconds the recap cards and arrows lift, blur and fade away one by one, starting from the last card. The first card goes last, taking the "Recap" label and heading with it. Two seconds later a browser window opens over the slide: a cursor clicks the search box, types `code.claude.com/docs`, presses Enter, and the docs page loads and scrolls through CLAUDE.md, Skills, Subagents, Hooks, MCP and Plugins in about 5 seconds. The browser closes and, after a short beat, the closing line types in:
+
+**Up next**
+
+# Let’s go to the demo.
 
 Docs: code.claude.com/docs — see "Extend Claude Code"
