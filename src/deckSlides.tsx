@@ -5,7 +5,6 @@ import { CodeSlide } from './components/deck/CodeSlide';
 import { ColumnsSlide } from './components/deck/ColumnsSlide';
 import { CoverSlide } from './components/deck/CoverSlide';
 import { KeyValueSlide } from './components/deck/KeyValueSlide';
-import { StatementSlide } from './components/deck/StatementSlide';
 import { StorySlide } from './components/deck/StorySlide';
 import {
   agendaItems,
@@ -37,16 +36,6 @@ export const slides: DeckSlide[] = [
 { id: 'scr_cmds01', title: customCommands.title, component: () => <CodeSlide {...customCommands} /> },
 { id: 'scr_skill1', title: skills.title, component: () => <CodeSlide {...skills} /> },
 { id: 'scr_subag1', title: subagents.title, component: () => <CodeSlide {...subagents} /> },
-{
-  id: 'scr_hooks1',
-  title: 'Hooks run every time, whatever the model decides.',
-  component: () =>
-  <StatementSlide
-    statement="Hooks run every time, whatever the model decides."
-    support="Claude doesn't even know they exist. That's the point." />
-
-
-},
 { id: 'scr_hooks2', title: hooksPractice.title, component: () => <ColumnsSlide {...hooksPractice} /> },
 { id: 'scr_mcp001', title: mcpPlugins.title, component: () => <ColumnsSlide {...mcpPlugins} /> },
 {

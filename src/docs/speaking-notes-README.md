@@ -48,26 +48,22 @@ Three groups. Context commands manage what Claude remembers: `/clear` for a fres
 
 A custom command is just a markdown file. Put it in `.claude/commands/` and the file name becomes the command. Whatever you type after it replaces `$ARGUMENTS`. So `/fix-item 4821` runs my whole "fix a work item" routine on item 4821. Commit the file and the whole team has the same command.
 
-## Slide 7: Skills: reusable playbooks
+## Slide 7: Skills
 
 A skill is a folder with a `SKILL.md` file. You can run it yourself as `/name`, or Claude can pick it up on its own when the task matches. The key point is that it's loaded only when needed, so your CLAUDE.md stays short and the detail lives in skills. The description line matters most, because that's how Claude decides when to use the skill.
 
-## Slide 8: Subagents: specialists
+## Slide 8: Subagents
 
 A subagent is a helper with its own memory, its own instructions and its own tools. It can read 40 files and your main chat only gets the summary back, so your session stays clean. You can also run several at once: one explores, one reviews, one tests. For a reviewer, give it read-only tools, so it can't edit your code.
 
-## Slide 9: Hooks run every time
+## Slide 9: Hooks
 
-A line in CLAUDE.md is a request. The model usually follows it, but not always. A hook is plain code that runs automatically at set moments, like after every edit. Claude doesn't even know it's there. That's the point: it happens every single time.
+A line in CLAUDE.md is a request. The model usually follows it, but not always. A hook is plain code that runs automatically at set moments, like after every edit. Claude doesn't even know it's there. That's the point: it happens every single time. First example: after every edit, run `dotnet format`. No prompt needed. Second example: before an edit, a small script checks the file path, and if it's the production config, it exits with code 2. The edit is blocked and Claude is told why. Both live in `.claude/settings.json`, so committing the file gives the whole team the same rules.
 
-## Slide 10: Hooks in practice
-
-First example: after every edit, run `dotnet format`. No prompt needed. Second example: before an edit, a small script checks the file path, and if it's the production config, it exits with code 2. The edit is blocked and Claude is told why. Both live in `.claude/settings.json`, so committing the file gives the whole team the same rules.
-
-## Slide 11: MCP and plugins
+## Slide 10: MCP and plugins
 
 MCP connects Claude to the places your work lives: work items, databases, internal docs. A plugin bundles skills, subagents, hooks and MCP servers into one installable unit. Install it from a marketplace and everybody on the team gets the same setup. Plugin commands are namespaced, so several plugins can live together without clashing.
 
-## Slide 12: One repo, one story
+## Slide 11: One repo, one story
 
 Here's the whole session as one pipeline. A skill builds the feature. A subagent reviews it. A hook formats every edit. A plugin ships the whole setup to the team. The plugin is the moment this stops being one person's setup and becomes the team's. *(When the recap fades and the browser opens:)* Everything we just covered is in the official docs at code.claude.com/docs, under "Extend Claude Code." Features change often, so that is the place to stay current. *(When the browser closes:)* Thank you. Anuja will now take you through all of this in a live demo.

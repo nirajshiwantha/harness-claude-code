@@ -112,7 +112,7 @@ Fix Azure DevOps item #$ARGUMENTS.
 };
 
 export const skills: CodeContent = {
-  title: 'Skills: reusable playbooks',
+  title: 'Skills',
   bullets: [
   'A folder with a **SKILL.md**, run as **/name** by you or picked up by Claude',
   'Project: `.claude/skills/<name>/` · Personal: `~/.claude/skills/<name>/`',
@@ -130,7 +130,7 @@ description: Add an API endpoint the way our team builds them
 };
 
 export const subagents: CodeContent = {
-  title: 'Subagents: specialists',
+  title: 'Subagents',
   bullets: [
   '**Own context window:** it reads 40 files, your session gets back only the summary',
   '**Own instructions and tools,** and it can preload skills',
@@ -148,7 +148,8 @@ Do not edit files.`
 };
 
 export const hooksPractice: ColumnsContent = {
-  title: 'Hooks in practice',
+  title: 'Hooks',
+  intro: 'Hooks run every time, whatever the model decides.',
   columns: [
   {
     eyebrow: 'PostToolUse · after every edit',

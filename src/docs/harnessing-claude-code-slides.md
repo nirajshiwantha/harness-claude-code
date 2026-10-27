@@ -116,7 +116,7 @@ Fix Azure DevOps item #$ARGUMENTS.
 
 ---
 
-## Slide 7 — Skills: reusable playbooks
+## Slide 7 — Skills
 
 - A folder with a **SKILL.md**, run as **/name** by you or picked up by Claude
 - Project: `.claude/skills/<name>/` · Personal: `~/.claude/skills/<name>/`
@@ -137,7 +137,7 @@ description: Add an API endpoint the way our team builds them
 
 ---
 
-## Slide 8 — Subagents: specialists
+## Slide 8 — Subagents
 
 - **Own context window:** it reads 40 files, your session gets back only the summary
 - **Own instructions and tools,** and it can preload skills
@@ -159,17 +159,9 @@ Do not edit files.
 
 ---
 
-## Slide 9 — Hooks (statement slide)
+## Slide 9 — Hooks
 
-# Hooks run every time, whatever the model decides.
-
-Claude doesn't even know they exist. That's the point.
-
-> **Speaker notes:** This is usually the aha moment. A prompt or CLAUDE.md line is a request the model may or may not follow. A hook is plain code wired to lifecycle events, so it is deterministic.
-
----
-
-## Slide 10 — Hooks in practice
+Hooks run every time, whatever the model decides.
 
 **PostToolUse · after every edit — Format code automatically**
 ```json
@@ -184,11 +176,11 @@ A script checks the target path and exits with code 2 for appsettings.Production
 
 Lives in **.claude/settings.json**. Commit it so the whole team gets the same rules.
 
-> **Speaker notes:** Show both live: make an edit and watch formatting happen with no prompt, then ask Claude to change the production config and watch it get blocked. Personal hooks go in ~/.claude/settings.json; settings.local.json is for your own untracked overrides.
+> **Speaker notes:** This is usually the aha moment. A prompt or CLAUDE.md line is a request the model may or may not follow; a hook is plain code wired to lifecycle events, so it is deterministic. Claude doesn't even know hooks exist, and that is the point. Show both live: make an edit and watch formatting happen with no prompt, then ask Claude to change the production config and watch it get blocked. Personal hooks go in ~/.claude/settings.json; settings.local.json is for your own untracked overrides.
 
 ---
 
-## Slide 11 — MCP and plugins
+## Slide 10 — MCP and plugins
 
 **MCP — Connects Claude to your systems**
 - Azure DevOps work items and pipelines
@@ -205,7 +197,7 @@ Lives in **.claude/settings.json**. Commit it so the whole team gets the same ru
 
 ---
 
-## Slide 12 — One repo, one story (Recap)
+## Slide 11 — One repo, one story (Recap)
 
 **Skill** (/add-endpoint builds the feature) → **Subagent** (code-reviewer checks it) → **Hook** (dotnet format cleans every edit) → **Plugin** (ships the whole setup to the team)
 
